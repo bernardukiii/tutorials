@@ -24,7 +24,7 @@ urlpatterns = format_suffix_patterns([
         views.UserDetail.as_view(),
         name='user-detail')
 ])
-
+# multiple views for each VIEWSET class. we are binding the HTTP methods to the required action for each view
 snippet_list = SnippetViewSet.as_view({
     'get': 'list',
     'post': 'create'
