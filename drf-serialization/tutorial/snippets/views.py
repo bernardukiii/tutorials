@@ -23,6 +23,7 @@ class SnippetViewSet(viewsets.ModelViewSet):
     serializer_class = SnippetSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
+    # the @action decorator allows us to extend our viewsets with custom functions
     @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def highlight(self, request, *args, **kwargs):
         snippet = self.get_object()
